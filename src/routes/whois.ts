@@ -1,4 +1,5 @@
 import express, { Request, Response } from "express";
+import validator from "validator";
 import { body } from "express-validator";
 import { validateRequest } from "../middleware/validate-request";
 
@@ -7,20 +8,17 @@ const router = express.Router();
 router.post(
     "/api/whois",
     [
-        body("IPorDomain").custom((value) => {
-            return (
-                value.match(
-                    /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/
-                ) ||
-                value.match(
-                    /^((?!-)[A-Za-z0-9-]{1, 63}(?<!-)\\.)+[A-Za-z]{2, 6}$/
-                )
-            );
-        }),
+        body("IPorDomain")
+            .custom((value) => {
+                const isIPorDomain =
+                    validator.isIP(value) || validator.isURL(value);
+                return isIPorDomain;
+            })
+            .withMessage("input must be a valid domain or IP"),
     ],
     validateRequest,
     async (req: Request, res: Response) => {
-        res.status(400);
+        res.status(201).send({ success: true });
     }
 );
 
