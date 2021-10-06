@@ -20,15 +20,15 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/JohnIrle/rocket-tracker.git"
+        "url": "git+https://github.com/JohnIrle/whois-backend.git"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "bugs": {
-        "url": "https://github.com/JohnIrle/rocket-tracker/issues"
+        "url": "https://github.com/JohnIrle/whois-backend/issues"
     },
-    "homepage": "https://github.com/JohnIrle/rocket-tracker#readme",
+    "homepage": "https://github.com/JohnIrle/whois-backend#readme",
     "dependencies": {
         "@types/express": "^4.17.13",
         "@types/node": "15.12.2",
