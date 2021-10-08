@@ -37,7 +37,6 @@ jobs:
 
                     # We have access to EC2, Start Deploy
                     cd /home/ubuntu/whois-backend &&
-                    git checkout main &&
                     get fetch --all &&
                     git reset --hard origin/main &&
                     git pull origin main &&
