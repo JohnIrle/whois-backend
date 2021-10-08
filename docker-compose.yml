@@ -1,0 +1,13 @@
+version: "3.7"
+
+services:
+    whois_backend:
+        container_name: whois_server
+        build:
+            context: .
+            dockerfile: Dockerfile
+        volumes:
+            - ".:/app"
+            - "/app/node_modules"
+        ports:
+            - 3001:80

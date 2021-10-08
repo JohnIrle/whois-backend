@@ -1,0 +1,10 @@
+version: "3.7"
+
+services:
+    whois_backend_prod:
+        container_name: whois-server-prod
+        build:
+            context: .
+            dockerfile: Dockerfile.prod
+        ports:
+            - 80:80
