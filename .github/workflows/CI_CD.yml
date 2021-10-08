@@ -37,9 +37,9 @@ jobs:
 
                     # We have access to EC2, Start Deploy
                     cd /home/ubuntu/whois-backend &&
-                    git checkout master &&
+                    git checkout main &&
                     get fetch --all &&
-                    git reset --hard origin/master &&
-                    git pull origin master &&
+                    git reset --hard origin/main &&
+                    git pull origin main &&
                     docker-compose -f docker-compose.prod.yml up -d --build
                   '
