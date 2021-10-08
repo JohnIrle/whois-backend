@@ -3,7 +3,7 @@ name: CI/CD whois server
 on:
     push:
         branches:
-            - "master"
+            - "main"
 
 jobs:
     # Check if applicaion builds
