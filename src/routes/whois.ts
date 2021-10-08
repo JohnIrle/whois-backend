@@ -22,13 +22,14 @@ router.post(
     ],
     validateRequest,
     async (req: Request, res: Response) => {
+        const { IPorDomain } = req.body;
         try {
             const externalWhoIs = await request
                 .get(BASE_URL)
                 .set("x-rapidapi-host", "whoisapi-whois-v2-v1.p.rapidapi.com")
                 .set("x-rapidapi-key", `${process.env.RAPID_API_KEY}`)
                 .query({ apiKey: process.env.WHOIS_API_KEY })
-                .query({ domainName: "whoisxmlapi.com" })
+                .query({ domainName: IPorDomain })
                 .query({ outputFormat: "JSON" })
                 .query({ da: "0" })
                 .query({ ipwhois: "0" })
