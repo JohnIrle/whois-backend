@@ -42,6 +42,6 @@ jobs:
                     git fetch --all &&
                     git reset --hard origin/main &&
                     git pull origin main &&
-                    echo "${RAPID_API_KEY}\n ${WHOIS_API_KEY} >> .env &&
+                    echo -e "${RAPID_API_KEY}\n ${WHOIS_API_KEY} >> .env &&
                     docker-compose -f docker-compose.prod.yml up -d --build
                   '
