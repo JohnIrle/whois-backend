@@ -41,7 +41,7 @@ router.post(
 
             res.status(201).send(externalWhoIs.body);
         } catch (err) {
-            console.log(err);
+            res.status(500).send({ error: "There has been a problem" });
         }
     }
 );
