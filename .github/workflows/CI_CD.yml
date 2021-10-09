@@ -24,12 +24,6 @@ jobs:
         runs-on: ubuntu-latest
 
         steps:
-            - name: add secrets
-              run: 'echo -e "$RAPID_API_KEY \n $WHOIS_API_KEY" > .env'
-              shell: bash
-              env:
-                  RAPID_API_KEY: ${{ secrets.RAPID_API_KEY }}
-                  WHOIS_API_KEY: ${{ secrets.WHOIS_API_KEY }}
   
             - uses: actions/checkout@v2
             - name: Deploy in EC2
@@ -49,5 +43,6 @@ jobs:
                     git fetch --all &&
                     git reset --hard origin/main &&
                     git pull origin main &&
+                    mv ../.env . &&
                     docker-compose -f docker-compose.prod.yml up -d --build
                   '
