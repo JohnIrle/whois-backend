@@ -36,10 +36,12 @@ jobs:
                   ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOST_NAME} '
 
                     # We have access to EC2, Start Deploy
+                   
                     cd /home/ubuntu/whois-backend &&
                     git checkout main &&
                     git fetch --all &&
                     git reset --hard origin/main &&
                     git pull origin main &&
+                    echo "${RAPID_API_KEY}\n ${WHOIS_API_KEY} >> .env &&
                     docker-compose -f docker-compose.prod.yml up -d --build
                   '
