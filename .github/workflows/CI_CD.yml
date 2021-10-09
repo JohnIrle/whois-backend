@@ -43,6 +43,6 @@ jobs:
                     git fetch --all &&
                     git reset --hard origin/main &&
                     git pull origin main &&
-                    mv ../.env . &&
+                    cp ../.env . &&
                     docker-compose -f docker-compose.prod.yml up -d --build
                   '
